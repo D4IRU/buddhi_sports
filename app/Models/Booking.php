@@ -1,33 +1,43 @@
 <?php
-
-class Booking
+ 
+namespace App\Models;
+ 
+use Illuminate\Database\Eloquent\Model;
+ 
+class Booking extends Model
 {
-    private $idBooking;
-    private $idPenyewa;
-    private $idLapangan;
-    private $tanggal;
-    private $jamMulai;
-    private $jamSelesai;
-    private $totalBayar;
-    private $status;
+    protected $primaryKey = 'idBooking';
+    public $timestamps = false;
+ 
+    protected $fillable = [
+        'idPenyewa',
+        'idLapangan',
+        'idAdmin',
+        'tanggal',
+        'jamMulai',
+        'jamSelesai',
+        'totalBayar',
+        'status',
+    ];
 
-    public function __construct(
-        $idBooking,
-        $idPenyewa,
-        $idLapangan,
-        $tanggal,
-        $jamMulai,
-        $jamSelesai,
-        $totalBayar,
-        $status
-    ) {
-        $this->idBooking = $idBooking;
-        $this->idPenyewa = $idPenyewa;
-        $this->idLapangan = $idLapangan;
-        $this->tanggal = $tanggal;
-        $this->jamMulai = $jamMulai;
-        $this->jamSelesai = $jamSelesai;
-        $this->totalBayar = $totalBayar;
-        $this->status = $status;
+    public function penyewa()
+    {
+        return $this->belongsTo(Penyewa::class, 'idPenyewa', 'idPenyewa');
+    }
+ 
+    public function lapangan()
+    {
+        return $this->belongsTo(Lapangan::class, 'idLapangan', 'idLapangan');
+    }
+ 
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class, 'idAdmin', 'idAdmin');
+    }
+ 
+    public function pembayaran()
+    {
+        return $this->hasOne(Pembayaran::class, 'idBooking', 'idBooking');
     }
 }
+ 
