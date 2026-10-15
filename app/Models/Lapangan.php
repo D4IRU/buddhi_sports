@@ -1,24 +1,23 @@
 <?php
-
-class Lapangan
+ 
+namespace App\Models;
+ 
+use Illuminate\Database\Eloquent\Model;
+ 
+class Lapangan extends Model
 {
-    private $idLapangan;
-    private $namaLapangan;
-    private $jenisLapangan;
-    private $tarifPerJam;
-    private $status;
-
-    public function __construct(
-        $idLapangan,
-        $namaLapangan,
-        $jenisLapangan,
-        $tarifPerJam,
-        $status
-    ) {
-        $this->idLapangan = $idLapangan;
-        $this->namaLapangan = $namaLapangan;
-        $this->jenisLapangan = $jenisLapangan;
-        $this->tarifPerJam = $tarifPerJam;
-        $this->status = $status;
+    protected $primaryKey = 'idLapangan';
+    public $timestamps = false;
+ 
+    protected $fillable = [
+        'namaLapangan',
+        'jenisLapangan',
+        'tarifPerJam',
+        'status',
+    ];
+ 
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'idLapangan', 'idLapangan');
     }
 }

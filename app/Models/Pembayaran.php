@@ -1,30 +1,30 @@
 <?php
-
-class Pembayaran
+ 
+namespace App\Models;
+ 
+use Illuminate\Database\Eloquent\Model;
+ 
+class Pembayaran extends Model
 {
-    private $idPembayaran;
-    private $idAdmin;
-    private $idBooking;
-    private $tglBayar;
-    private $jumlahBayar;
-    private $buktiBayar;
-    private $status;
+    protected $primaryKey = 'idPembayaran';
+    public $timestamps = false;
+ 
+    protected $fillable = [
+        'idAdmin',
+        'idBooking',
+        'tglBayar',
+        'jumlahBayar',
+        'buktiBayar',
+        'status',
+    ];
 
-    public function __construct(
-        $idPembayaran,
-        $idAdmin,
-        $idBooking,
-        $tglBayar,
-        $jumlahBayar,
-        $buktiBayar,
-        $status
-    ) {
-        $this->idPembayaran = $idPembayaran;
-        $this->idAdmin = $idAdmin;
-        $this->idBooking = $idBooking;
-        $this->tglBayar = $tglBayar;
-        $this->jumlahBayar = $jumlahBayar;
-        $this->buktiBayar = $buktiBayar;
-        $this->status = $status;
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class, 'idAdmin', 'idAdmin');
+    }
+
+    public function booking()
+    {
+        return $this->belongsTo(Booking::class, 'idBooking', 'idBooking');
     }
 }

@@ -1,19 +1,23 @@
 <?php
-
-class Penyewa
+ 
+namespace App\Models;
+ 
+use Illuminate\Database\Eloquent\Model;
+ 
+class Penyewa extends Model
 {
-    private $idPenyewa;
-    private $namaPenyewa;
-    private $noHp;
-    private $email;
-    private $password;
+    protected $primaryKey = 'idPenyewa';
+    public $timestamps = false;
+ 
+    protected $fillable = [
+        'namaPenyewa',
+        'noHp',
+        'email',
+        'password',
+    ];
 
-    public function __construct($idPenyewa, $namaPenyewa, $noHp, $email, $password)
+    public function bookings()
     {
-        $this->idPenyewa = $idPenyewa;
-        $this->namaPenyewa = $namaPenyewa;
-        $this->noHp = $noHp;
-        $this->email = $email;
-        $this->password = $password;
+        return $this->hasMany(Booking::class, 'idPenyewa', 'idPenyewa');
     }
 }

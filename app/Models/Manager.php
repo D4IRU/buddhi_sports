@@ -1,17 +1,22 @@
 <?php
-
-class Manager
+ 
+namespace App\Models;
+ 
+use Illuminate\Database\Eloquent\Model;
+ 
+class Manager extends Model
 {
-    private $idManager;
-    private $namaManager;
-    private $username;
-    private $password;
-
-    public function __construct($idManager, $namaManager, $username, $password)
+    protected $primaryKey = 'idManager';
+    public $timestamps = false;
+ 
+    protected $fillable = [
+        'namaManager',
+        'username',
+        'password',
+    ];
+ 
+    public function laporanPembayarans()
     {
-        $this->idManager = $idManager;
-        $this->namaManager = $namaManager;
-        $this->username = $username;
-        $this->password = $password;
+        return $this->hasMany(LaporanPembayaran::class, 'idManager', 'idManager');
     }
 }

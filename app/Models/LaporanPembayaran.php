@@ -1,33 +1,31 @@
 <?php
-
-class LaporanPembayaran
+ 
+namespace App\Models;
+ 
+use Illuminate\Database\Eloquent\Model;
+ 
+class LaporanPembayaran extends Model
 {
-    private $idLaporan;
-    private $idAdmin;
-    private $idManager;
-    private $bulan;
-    private $tahun;
-    private $totalPemasukan;
-    private $tglLaporan;
-    private $idPembayaran;
+    protected $primaryKey = 'idLaporan';
+    public $timestamps = false;
+ 
+    protected $fillable = [
+        'idAdmin',
+        'idManager',
+        'bulan',
+        'tahun',
+        'totalPemasukan',
+        'tglLaporan',
+        'idPembayaran',
+    ];
 
-    public function __construct(
-        $idLaporan,
-        $idAdmin,
-        $idManager,
-        $bulan,
-        $tahun,
-        $totalPemasukan,
-        $tglLaporan,
-        $idPembayaran
-    ) {
-        $this->idLaporan = $idLaporan;
-        $this->idAdmin = $idAdmin;
-        $this->idManager = $idManager;
-        $this->bulan = $bulan;
-        $this->tahun = $tahun;
-        $this->totalPemasukan = $totalPemasukan;
-        $this->tglLaporan = $tglLaporan;
-        $this->idPembayaran = $idPembayaran;
+    public function manager()
+    {
+        return $this->belongsTo(Manager::class, 'idManager', 'idManager');
+    }
+ 
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class, 'idAdmin', 'idAdmin');
     }
 }
