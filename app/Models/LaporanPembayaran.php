@@ -28,4 +28,9 @@ class LaporanPembayaran extends Model
     {
         return $this->belongsTo(Admin::class, 'idAdmin', 'idAdmin');
     }
+
+    public function pembayaran()
+    {
+        return $this->belongsTo(Pembayaran::class, 'idPembayaran', 'idPembayaran');
+    }
 }
