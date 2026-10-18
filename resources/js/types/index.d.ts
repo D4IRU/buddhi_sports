@@ -1,8 +1,8 @@
 export interface User {
-    id: number;
-    name: string;
+    idPenyewa: number;
+    namaPenyewa: string;
+    noHp: string;
     email: string;
-    email_verified_at?: string;
 }
 
 export type PageProps<
@@ -10,5 +10,9 @@ export type PageProps<
 > = T & {
     auth: {
         user: User;
+    };
+    flash: {
+        error?: string;
+        success?: string;
     };
 };
