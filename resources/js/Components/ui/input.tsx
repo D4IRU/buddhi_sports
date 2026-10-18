@@ -8,13 +8,13 @@ const inputVariants = cva(
     variants: {
       variant: {
         default:
-          "border-input bg-background focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
+          "border-gray-200 bg-background focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
         ghost:
           "border-transparent bg-transparent hover:bg-muted focus-visible:bg-muted focus-visible:ring-0",
       },
       size: {
         sm: "h-7 px-2.5 text-xs rounded-md",
-        default: "h-8 px-3 text-sm",
+        default: "h-10 px-4 text-base",
         lg: "h-9 px-3.5 text-sm",
       },
     },

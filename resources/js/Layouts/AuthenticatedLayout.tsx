@@ -31,7 +31,13 @@ export default function Authenticated({
                                     href={route('dashboard')}
                                     active={route().current('dashboard')}
                                 >
-                                    Dashboard
+                                    Home
+                                </NavLink>
+                                <NavLink
+                                    href={route('booking')}
+                                    active={route().current('booking')}
+                                >
+                                    Booking
                                 </NavLink>
                             </div>
                         </div>
@@ -73,6 +79,7 @@ export default function Authenticated({
                                             href={route('logout')}
                                             method="post"
                                             as="button"
+                                            className="text-red-600! hover:bg-red-50! focus:bg-red-50!"
                                         >
                                             Log Out
                                         </Dropdown.Link>
@@ -135,7 +142,13 @@ export default function Authenticated({
                             href={route('dashboard')}
                             active={route().current('dashboard')}
                         >
-                            Dashboard
+                            Home
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route('booking')}
+                            active={route().current('booking')}
+                        >
+                            Booking
                         </ResponsiveNavLink>
                     </div>
 

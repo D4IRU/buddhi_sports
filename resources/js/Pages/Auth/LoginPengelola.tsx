@@ -92,8 +92,8 @@ export default function LoginPengelola() {
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
-                    <PrimaryButton disabled={processing}>
+                <div className="mt-4 flex flex-col gap-3">
+                    <PrimaryButton className="w-full" disabled={processing}>
                         Log in sebagai {role === 'admin' ? 'Admin' : 'Manager'}
                     </PrimaryButton>
                 </div>

@@ -29,6 +29,9 @@ Route::get('/test', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/booking', function () {
+    return Inertia::render('Booking');
+})->middleware(['auth', 'verified'])->name('booking');
 
 // Penyewa (mahasiswa / masyarakat umum)
 Route::middleware('auth')->group(function () {

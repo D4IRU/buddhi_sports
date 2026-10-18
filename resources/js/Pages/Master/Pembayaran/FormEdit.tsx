@@ -20,7 +20,7 @@ type Booking = { idBooking: number; tanggal: string };
 type Admin = { idAdmin: number; namaAdmin: string };
 
 const selectClass =
-    'mt-1 flex h-8 w-full rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50';
+    'mt-1 flex h-10 w-full rounded-lg border border-gray-200 bg-background px-4 text-base outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50';
 
 export default function FormEdit({
     datapembayaran,
@@ -60,7 +60,7 @@ export default function FormEdit({
 
             <form
                 onSubmit={submit}
-                className="max-w-md space-y-4 rounded-lg bg-white p-6 shadow-sm"
+                className="max-w-md space-y-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
             >
                 <div>
                     <Label htmlFor="txtbooking">Booking</Label>
@@ -149,7 +149,7 @@ export default function FormEdit({
                     <InputError message={errors.txtstatus} className="mt-1" />
                 </div>
 
-                <Button disabled={processing}>Simpan Perubahan</Button>
+                <Button className="w-full" disabled={processing}>Simpan Perubahan</Button>
             </form>
         </AdminLayout>
     );

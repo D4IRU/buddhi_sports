@@ -39,7 +39,7 @@ export default function FormEdit({ datapenyewa }: { datapenyewa: Penyewa }) {
 
             <form
                 onSubmit={submit}
-                className="max-w-md space-y-4 rounded-lg bg-white p-6 shadow-sm"
+                className="max-w-md space-y-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
             >
                 <div>
                     <Label htmlFor="txtnama">Nama</Label>
@@ -88,7 +88,7 @@ export default function FormEdit({ datapenyewa }: { datapenyewa: Penyewa }) {
                     <InputError message={errors.txtpassword} className="mt-1" />
                 </div>
 
-                <Button disabled={processing}>Simpan Perubahan</Button>
+                <Button className="w-full" disabled={processing}>Simpan Perubahan</Button>
             </form>
         </AdminLayout>
     );

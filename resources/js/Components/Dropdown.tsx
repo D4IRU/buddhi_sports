@@ -53,7 +53,7 @@ const Trigger = ({ children }: PropsWithChildren) => {
 const Content = ({
     align = 'right',
     width = '48',
-    contentClasses = 'py-1 bg-white',
+    contentClasses = 'bg-gray-50',
     children,
 }: PropsWithChildren<{
     align?: 'left' | 'right';
@@ -93,7 +93,7 @@ const Content = ({
                 >
                     <div
                         className={
-                            `rounded-md ring-1 ring-black ring-opacity-5 ` +
+                            `overflow-hidden rounded-md border border-gray-200 ` +
                             contentClasses
                         }
                     >

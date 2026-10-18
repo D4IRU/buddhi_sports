@@ -15,7 +15,7 @@ type Lapangan = {
 };
 
 const selectClass =
-    'mt-1 flex h-8 w-full rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50';
+    'mt-1 flex h-10 w-full rounded-lg border border-gray-200 bg-background px-4 text-base outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50';
 
 export default function FormEdit({ datalapangan }: { datalapangan: Lapangan }) {
     const { data, setData, post, processing, errors } = useForm({
@@ -43,7 +43,7 @@ export default function FormEdit({ datalapangan }: { datalapangan: Lapangan }) {
 
             <form
                 onSubmit={submit}
-                className="max-w-md space-y-4 rounded-lg bg-white p-6 shadow-sm"
+                className="max-w-md space-y-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
             >
                 <div>
                     <Label htmlFor="txtnama">Nama Lapangan</Label>
@@ -97,7 +97,7 @@ export default function FormEdit({ datalapangan }: { datalapangan: Lapangan }) {
                     <InputError message={errors.txtstatus} className="mt-1" />
                 </div>
 
-                <Button disabled={processing}>Simpan Perubahan</Button>
+                <Button className="w-full" disabled={processing}>Simpan Perubahan</Button>
             </form>
         </AdminLayout>
     );

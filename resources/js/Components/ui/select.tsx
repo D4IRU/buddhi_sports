@@ -14,13 +14,13 @@ const selectTriggerVariants = cva(
     variants: {
       variant: {
         default:
-          "border-input bg-background focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 data-[popup-open]:border-ring data-[popup-open]:ring-3 data-[popup-open]:ring-ring/50",
+          "border-gray-200 bg-background focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 data-[popup-open]:border-ring data-[popup-open]:ring-3 data-[popup-open]:ring-ring/50",
         ghost:
           "border-transparent bg-transparent hover:bg-muted focus-visible:bg-muted focus-visible:ring-0",
       },
       size: {
         sm: "h-7 gap-1 px-2.5 text-xs rounded-md",
-        default: "h-8 gap-1.5 px-3 text-sm",
+        default: "h-10 gap-1.5 px-4 text-base",
         lg: "h-9 gap-2 px-3.5 text-sm",
       },
     },
