@@ -1,17 +1,21 @@
 <?php
- 
+
 namespace App\Models;
- 
-use Illuminate\Database\Eloquent\Model;
- 
-class Admin extends Model
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class Admin extends Authenticatable
 {
     protected $primaryKey = 'idAdmin';
     public $timestamps = false;
- 
+
     protected $fillable = [
         'namaAdmin',
         'username',
+        'password',
+    ];
+
+    protected $hidden = [
         'password',
     ];
  

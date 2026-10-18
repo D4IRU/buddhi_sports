@@ -16,7 +16,17 @@ return Application::configure(basePath: dirname(__DIR__))
             \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
         ]);
 
-        //
+        // tamu yang kena 'auth:admin'/'auth:manager' diarahkan ke login pengelola,
+        // sisanya (guard 'web' / Penyewa) tetap ke /login seperti biasa
+        $middleware->redirectGuestsTo(function ($request) {
+            $routeMiddleware = $request->route()?->middleware() ?? [];
+
+            if (in_array('auth:admin', $routeMiddleware) || in_array('auth:manager', $routeMiddleware)) {
+                return route('login.pengelola');
+            }
+
+            return route('login');
+        });
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

@@ -1,6 +1,8 @@
 <?php
 
-use App\Models\User;
+use App\Models\Admin;
+use App\Models\Manager;
+use App\Models\Penyewa;
 
 return [
 
@@ -42,6 +44,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'manager' => [
+            'driver' => 'session',
+            'provider' => 'managers',
+        ],
     ],
 
     /*
@@ -62,9 +74,20 @@ return [
     */
 
     'providers' => [
+        // guard 'web' default: dipakai oleh Penyewa (registrasi & login mahasiswa/umum)
         'users' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', User::class),
+            'model' => env('AUTH_MODEL', Penyewa::class),
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => Admin::class,
+        ],
+
+        'managers' => [
+            'driver' => 'eloquent',
+            'model' => Manager::class,
         ],
 
         // 'users' => [
